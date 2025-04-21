@@ -9,7 +9,7 @@ QuickCart is a full-stack e-commerce web application built with **Next.js**, **C
 
 👉 [Live Site on Vercel](https://quick-cart-three-opal.vercel.app/)
 
-👉 [GitHub Repository](https://github.com/your-username/quickcart)
+👉 [GitHub Repository](https://github.com/Aswin432/QuickCart/tree/main)
 
 ---
 
