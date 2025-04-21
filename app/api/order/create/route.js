@@ -1,7 +1,8 @@
 import Product from "@/models/Product";
-import { getAuth, User } from "@clerk/nextjs/server";
-import { Inngest } from "inngest";
+import { getAuth } from "@clerk/nextjs/server";
+import User from "@/models/User";
 import { NextResponse } from "next/server";
+import { inngest } from "@/config/inngest";
 
 export async function POST(request) {
   try {
@@ -16,10 +17,10 @@ export async function POST(request) {
 
     const amount = await items.reduce(async (acc, item) => {
       const product = await Product.findById(item.product);
-      return acc + product.offerPrice * item.quantity;
+      return (await acc) + product.offerPrice * item.quantity;
     }, 0);
 
-    await Inngest.send({
+    await inngest.send({
       name: "order/created",
       data: {
         userId,
